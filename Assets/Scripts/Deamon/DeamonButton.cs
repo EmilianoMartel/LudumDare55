@@ -11,6 +11,7 @@ public class DeamonButton : MonoBehaviour
 
     private Sprite _face;
     private Demon _demon;
+    public Demon demon { get { return _demon; } }
 
     public Action<DeamonButton> selectedButtonEvent = delegate { };
 

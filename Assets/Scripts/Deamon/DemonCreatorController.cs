@@ -25,11 +25,15 @@ public class DemonCreatorController : MonoBehaviour
     private DeamonButton _demonButton;
 
     public Action<Demon, Sprite> sendDeamonAction;
+    public Action<Demon> electedDemonEvent = delegate { };
+    public Action allDemonsDieEvent = delegate { };
 
+    private int _actualTier;
 
     private void OnEnable()
     {
         _gameManager.startGameEvent += StartGame;
+        _gameManager.failEvent += HandleDemonDead;
         for (int i = 0; i < _demonButtonList.Count; i++)
         {
             _demonButtonList[i].selectedButtonEvent += HandleButtonChange;
@@ -40,6 +44,7 @@ public class DemonCreatorController : MonoBehaviour
     private void OnDisable()
     {
         _gameManager.startGameEvent -= StartGame;
+        _gameManager.failEvent -= HandleDemonDead;
         _confirmLogic.confirmEvent -= HandleConfirmEvent;
         for (int i = 0; i < _demonList.Count; i++)
         {
@@ -62,33 +67,34 @@ public class DemonCreatorController : MonoBehaviour
     private Demon CreateDemon(int indexName)
     {
         int indexType = UnityEngine.Random.Range(0,_dataSO.typesList.Count);
-        int indexCategory = UnityEngine.Random.Range(1,5);
 
-        Category cat;
-        switch (indexCategory)
-        {
-            case 1:
-                cat = Category.cat1;
-                break;
-            case 2:
-                cat = Category.cat2;
-                break;
-            case 3:
-                cat = Category.cat3;
-                break;
-            case 4:
-                cat = Category.cat4;
-                break;
-            default:
-                cat = Category.cat1;
-                break;
-        }
+        Category cat = CheckCategory();
 
         Demon temp = Instantiate(_prefabDemon);
         temp.StartDemon(_dataSO.namesList[indexName], _dataSO.typesList[indexType], cat, _spriteList[indexName]);
         temp.canActive += HandleActiveDemon;
 
         return temp;
+    }
+
+    private Category CheckCategory()
+    {
+        int tier = UnityEngine.Random.Range(1, 4);
+        while (tier == _actualTier)
+        {
+            tier = UnityEngine.Random.Range(1, 4);
+        }
+        List<Category> _random = new List<Category>();
+        for (int i = 0; i < _dataSO.categoryList.Count; i++)
+        {
+            if (_dataSO.categoryList[i].Rank == tier)
+            {
+                _random.Add(_dataSO.categoryList[i]);
+            }
+        }
+        int index = UnityEngine.Random.Range(0, _random.Count);
+        _actualTier = tier;
+        return _random[index];
     }
 
     [ContextMenu("SendDemons")]
@@ -153,6 +159,7 @@ public class DemonCreatorController : MonoBehaviour
     private void HandleButtonChange(DeamonButton demonButton)
     {
         _demonButton = demonButton;
+        electedDemonEvent?.Invoke(_demonButton.demon);
     }
 
     private void HandleConfirmEvent()
@@ -171,5 +178,23 @@ public class DemonCreatorController : MonoBehaviour
     {
         CreateListDemons();
         SendFirstDemons();
+    }
+
+    private void HandleDemonDead(Wizards wizard, Demon demon)
+    {
+        if (_demonList.Contains(demon))
+        {
+            _demonList.Remove(demon);
+            _dieDemonList.Add(demon);
+        }
+        if (_activeList.Contains(demon))
+        {
+            _activeList.Remove(demon);
+            _dieDemonList.Add(demon);
+        }
+        if (_activeList.Count == 0 && _demonList.Count == 0)
+        {
+            allDemonsDieEvent?.Invoke();
+        }
     }
 }

@@ -1,0 +1,11 @@
+[
+  {"Name": "Imp", "Level": 1, "Rank": 1},
+  {"Name": "Pombero", "Level": 2, "Rank": 1},
+  {"Name": "Lamia", "Level": 3, "Rank": 1},
+  {"Name": "Zalgan", "Level": 4, "Rank": 2},
+  {"Name": "Malphas", "Level": 5, "Rank": 2},
+  {"Name": "Incubus", "Level": 6, "Rank": 2},
+  {"Name": "Oni", "Level": 7, "Rank": 3},
+  {"Name": "Succubus", "Level": 8, "Rank": 3},
+  {"Name": "Devil", "Level": 9, "Rank": 3}
+]

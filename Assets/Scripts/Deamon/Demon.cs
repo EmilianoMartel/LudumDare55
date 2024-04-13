@@ -15,12 +15,11 @@ public class DemonType
     public string type { get { return _type; } set { _type = value; } }
 }
 
-public enum Category
+public class Category
 {
-    cat1,
-    cat2,
-    cat3,
-    cat4
+    public string Name;
+    public int Level;
+    public int Rank;
 }
 
 public class Demon : MonoBehaviour
@@ -55,21 +54,14 @@ public class Demon : MonoBehaviour
         return _type;
     }
 
-    public string ShowCategory()
+    public string ShowCategoryName()
     {
-        switch (_category)
-        {
-            case Category.cat1:
-                return "one";
-            case Category.cat2:
-                return "Two";
-            case Category.cat3:
-                return "Trhee";
-            case Category.cat4:
-                return "Four";
-            default:
-                return "none";
-        }
+        return _category.Name;
+    }
+
+    public int ShowCategoryPower()
+    {
+        return _category.Level;
     }
 
     public void HandleActiveCD()
