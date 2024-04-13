@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     private int _currentWaveCount = 0;
 
     public Action startGameEvent = delegate { };
+    public Action<bool> isWinGameEvente = delegate { };
 
     private void OnEnable()
     {
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _changeDayPanel.SetActive(false);
+        _maxWizardRequest = _minWizarstoRequest;
         StartCoroutine(StartGame());
     }
 
@@ -44,6 +46,11 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(_waitFotCharge);
         startGameEvent?.Invoke();
         _loadingPanel.SetActive(false);
+    }
+
+    private void HandleCheckRequest(string dungeon, Demon demon, string mage)
+    {
+
     }
 
     private void HandleRequest()
@@ -58,6 +65,10 @@ public class GameManager : MonoBehaviour
     private void WaveChanger()
     {
         _currentWaveCount++;
+        if (_currentWaveCount >= _maxWaveCount)
+        {
+            isWinGameEvente?.Invoke(true);
+        }
         _currentWizarRequest = 0;
         _maxWizardRequest += _wizardRequestIncrement;
         _changeDayPanel.SetActive(true);

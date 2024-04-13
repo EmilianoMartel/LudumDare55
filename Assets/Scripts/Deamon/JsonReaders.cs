@@ -4,32 +4,54 @@ using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
 
+public class Dungeons
+{
+    public string name;
+    public int difficulty;
+}
+
+public class Wizards
+{
+    public string Name;
+    public int Power;
+}
+
 public class JsonReaders : MonoBehaviour
 {
     private List<DemonName> _namesList;
     private List<DemonType> _typeList;
+    private List<Dungeons> _dungeonsList;
+    private List<Wizards> _wizardList;
 
     [Header("JsonFiles")]
     [SerializeField] private string NAMES_FILE = "Names.json";
     [SerializeField] private string TYPE_FILE = "Type.json";
+    [SerializeField] private string DUNGEON_FILE = "Dungeon.json";
+    [SerializeField] private string WIZARD_FILE = "WizardNames.json";
     [Header("DataSO")]
     [SerializeField] private JsonDataSo _dataSO;
 
     private static string _relativeFolder = "StreamingAssets";
     private string _filePathName;
     private string _filePathType;
+    private string _filePathDungeon;
+    private string _filePathWizard;
 
     private void Awake()
     {
         ListGenerator();
         _dataSO.namesList = _namesList;
         _dataSO.typesList = _typeList;
+        _dataSO.dungeonList = _dungeonsList;
+        _dataSO.wizardsNameList = _wizardList;
     }
 
     private void ListGenerator()
     {
         _filePathName = Path.Combine(Application.dataPath, _relativeFolder, NAMES_FILE);
         _filePathType = Path.Combine(Application.dataPath, _relativeFolder, TYPE_FILE);
+        _filePathDungeon = Path.Combine(Application.dataPath, _relativeFolder, DUNGEON_FILE);
+        _filePathWizard = Path.Combine(Application.dataPath, _relativeFolder, WIZARD_FILE);
         try
         {
             if (File.Exists(_filePathName))
@@ -39,6 +61,14 @@ public class JsonReaders : MonoBehaviour
             if (File.Exists(_filePathType))
             {
                 _typeList = JsonConvert.DeserializeObject<List<DemonType>>(File.ReadAllText(_filePathType));
+            }
+            if (File.Exists(_filePathDungeon))
+            {
+                _dungeonsList = JsonConvert.DeserializeObject<List<Dungeons>>(File.ReadAllText(_filePathDungeon));
+            }
+            if (File.Exists(_filePathWizard))
+            {
+                _wizardList = JsonConvert.DeserializeObject<List<Wizards>>(File.ReadAllText(_filePathWizard));
             }
         }
         catch (System.Exception)
