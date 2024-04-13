@@ -1,32 +1,48 @@
+using System;
+using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
+
 public class DemonName
 {
     private string _name;
-    public string name { get { return _name;}set { _name = value;} }
+    public string name { get { return _name; } set { _name = value; } }
 }
 
 public class DemonType
 {
     private string _type;
-    public string type { get { return _type;}set { _type = value;} }
+    public string type { get { return _type; } set { _type = value; } }
 }
 
-public class DemonCategory
+public enum Category
 {
-    private string _category;
-    public string category { get { return _category;}set { _category = value;} }
+    cat1,
+    cat2,
+    cat3,
+    cat4
 }
 
-public class Demon
+public class Demon : MonoBehaviour
 {
     private string _name;
     private string _type;
-    private string _category;
+    private Sprite _face;
+    private Category _category;
+    private bool _isActive = false;
+    private float _timeCD = 5;
 
-    public void StartDemon(DemonName name,DemonType type, DemonCategory category)
+    public Sprite face { get { return _face; }}
+    public bool isActive { get { return _isActive; } set { _isActive = value; } }
+
+    public Action<Demon> canActive;
+
+    public void StartDemon(DemonName name, DemonType type, Category category, Sprite face)
     {
         _name = name.name;
         _type = type.type;
-        _category = category.category;
+        _category = category;
+        _face = face;
     }
 
     public string ShowName()
@@ -41,6 +57,31 @@ public class Demon
 
     public string ShowCategory()
     {
-        return _category;
+        switch (_category)
+        {
+            case Category.cat1:
+                return "one";
+            case Category.cat2:
+                return "Two";
+            case Category.cat3:
+                return "Trhee";
+            case Category.cat4:
+                return "Four";
+            default:
+                return "none";
+        }
+    }
+
+    public void HandleActiveCD()
+    {
+        StartCoroutine(CouldDown());
+    }
+
+    private IEnumerator CouldDown()
+    {
+        _isActive = true;
+        yield return new WaitForSeconds(_timeCD);
+        _isActive = false;
+        canActive?.Invoke(this);
     }
 }

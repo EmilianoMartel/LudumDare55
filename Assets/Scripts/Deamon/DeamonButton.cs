@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class DeamonButton : MonoBehaviour
 
     private Sprite _face;
     private Demon _demon;
+
+    public Action<DeamonButton> selectedButtonEvent = delegate { };
 
     private void OnEnable()
     {
@@ -25,11 +28,12 @@ public class DeamonButton : MonoBehaviour
     {
         _demon = demon;
         _face = face;
-        _button.image.sprite = _face;
+        _button.image.sprite = face;
     }
 
     private void HandleSendDemon()
     {
         _creator.sendDeamonAction?.Invoke(_demon,_face);
+        selectedButtonEvent?.Invoke(this);
     }
 }

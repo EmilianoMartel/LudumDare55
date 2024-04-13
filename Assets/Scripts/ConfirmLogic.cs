@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ConfirmLogic : MonoBehaviour
 {
-    [SerializeField] private SendDemonButton _gameManager;
+    [SerializeField] private SendDemonButton _sendDemon;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Button _confirmButton;
     [SerializeField] private Button _cancelButton;
@@ -15,14 +15,14 @@ public class ConfirmLogic : MonoBehaviour
 
     private void OnEnable()
     {
-        _gameManager.sendDemonEvent += HandleSendDemon;
+        _sendDemon.sendDemonEvent += HandleSendDemon;
         _confirmButton.onClick.AddListener(HandleClickConfirm);
         _cancelButton.onClick.AddListener(HandleCancel);
     }
 
     private void OnDisable()
     {
-        _gameManager.sendDemonEvent -= HandleSendDemon;
+        _sendDemon.sendDemonEvent -= HandleSendDemon;
         _confirmButton.onClick?.RemoveListener(HandleClickConfirm);
         _cancelButton.onClick.RemoveListener(HandleCancel);
     }
