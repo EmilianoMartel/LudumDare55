@@ -1,0 +1,12 @@
+[
+  {"type": "fire"},
+  {"type": "cold"},
+  {"type": "shadow"},
+  {"type": "poison"},
+  {"type": "thunder"},
+  {"type": "earth"},
+  {"type": "water"},
+  {"type": "wind"},
+  {"type": "darkness"},
+  {"type": "light"}
+]
