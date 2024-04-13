@@ -10,6 +10,7 @@ using Debug = UnityEngine.Debug;
 
 public class DemonCreatorController : MonoBehaviour
 {
+    [SerializeField] private GameManager _gameManager;
     [SerializeField] private ConfirmLogic _confirmLogic;
     [SerializeField] private List<DeamonButton> _demonButtonList = new List<DeamonButton>();
     [SerializeField] private Demon _prefabDemon;
@@ -28,6 +29,7 @@ public class DemonCreatorController : MonoBehaviour
 
     private void OnEnable()
     {
+        _gameManager.startGameEvent += StartGame;
         for (int i = 0; i < _demonButtonList.Count; i++)
         {
             _demonButtonList[i].selectedButtonEvent += HandleButtonChange;
@@ -37,6 +39,7 @@ public class DemonCreatorController : MonoBehaviour
 
     private void OnDisable()
     {
+        _gameManager.startGameEvent -= StartGame;
         _confirmLogic.confirmEvent -= HandleConfirmEvent;
         for (int i = 0; i < _demonList.Count; i++)
         {
@@ -162,5 +165,11 @@ public class DemonCreatorController : MonoBehaviour
             _activeList.Add(profile);
         }
         _demonButton.ReciveDemon(profile, profile.face);
+    }
+
+    private void StartGame()
+    {
+        CreateListDemons();
+        SendFirstDemons();
     }
 }
