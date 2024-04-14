@@ -1229,14 +1229,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8984dba65395b46b25c9a154fc68ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 0}
+  _data: {fileID: 11400000, guid: 69cfdff6eaacbf04693684139d2a91e4, type: 2}
   _loseCanvas: {fileID: 2061569191}
   _winCanvas: {fileID: 786027092}
   FirstButtonSelected: {fileID: 988111385}
   _winMenuSound: {fileID: 2033105158}
   _loseMenuSound: {fileID: 957308331}
-  buttonToMenu: add level name here
-  buttonToResetGame: add level name here
+  buttonToMenu: MainMenuScene
+  buttonToResetGame: GameplayScene
 --- !u!4 &1910053173
 Transform:
   m_ObjectHideFlags: 0

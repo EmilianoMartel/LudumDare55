@@ -5380,6 +5380,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 357529869516598511, guid: cbfcc631bc2cd80418580b2e592d919d, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 69cfdff6eaacbf04693684139d2a91e4, type: 2}
+    - target: {fileID: 357529869516598511, guid: cbfcc631bc2cd80418580b2e592d919d, type: 3}
       propertyPath: _confirm
       value: 
       objectReference: {fileID: 2000128831}
@@ -5996,10 +6000,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 621268265}
     m_Modifications:
-    - target: {fileID: 3914231988504326280, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3914231988153815577, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
       propertyPath: m_fontAsset
       value: 
