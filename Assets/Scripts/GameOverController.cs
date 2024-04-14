@@ -38,16 +38,6 @@ public class GameOverController : MonoBehaviour
         }
     }
 
-    public void GameWin()
-    {
-        _gameWinMenu.SetActive(true);
-    }
-
-    public void GameLose()
-    {
-        _gameLoseMenu.SetActive(true);
-    }
-
     public void RestartButton()
     {
         SceneManager.LoadScene(buttonToResetGame);
