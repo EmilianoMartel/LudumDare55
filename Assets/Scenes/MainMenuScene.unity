@@ -1216,14 +1216,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Emiliano David Martel Rodriguez - Developer
-
-
-    Sofia - Developer
-
-
-    Brian
-    Andres Suhit - Developer'
+  m_text: "Emiliano David Martel Rodriguez - Developer\n\nSof\xEDa \xC1lvarez Franz\xE9
+    - Developer\n\nBrian Andres Suhit - Developer"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
   m_sharedMaterial: {fileID: -5929674532380232541, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
@@ -2864,7 +2858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1633008548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3729,7 +3723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1872404578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4154,10 +4148,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Sofia Alexa - Art
+  m_text: 'Sofia Alexa Laborero - Art
 
 
-    London - Art'
+    London Cruz - Art'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
   m_sharedMaterial: {fileID: -5929674532380232541, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
@@ -4220,7 +4214,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -269.739, w: 0}
+  m_margin: {x: 0, y: 0, z: -316.35828, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
