@@ -1100,8 +1100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8984dba65395b46b25c9a154fc68ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameWinMenu: {fileID: 786027092}
-  _gameLoseMenu: {fileID: 2061569191}
+  _data: {fileID: 0}
+  _loseCanvas: {fileID: 2061569191}
+  _winCanvas: {fileID: 786027092}
   FirstButtonSelected: {fileID: 988111385}
   buttonToMenu: add level name here
   buttonToResetGame: add level name here

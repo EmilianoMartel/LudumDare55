@@ -1,24 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    public Image healthBar;
-    public float maxHealth = 100f;
-    public float currentHealth = 100f;
+    [SerializeField] private Image _healthBar;
+    [SerializeField] private int _maxHealth = 100;
+    [SerializeField] private int _currentHealth = 100;
+
+    public void Start()
+    {
+        _currentHealth = _maxHealth;
+    }
+
+    private void Update()
+    {
+        _healthBar.fillAmount = 1.0f * _currentHealth / _maxHealth;
+    }
 
     [ContextMenu("Get 20 point damage")]
     private void Get20Point()
     {
-        ReceiveDagage(20f);
-        currentHealth -= 20;
-        healthBar.fillAmount = currentHealth / maxHealth;
+        ReceiveDagage(20);
+        _currentHealth -= 20;
+        _healthBar.fillAmount = 1.0f * _currentHealth / _maxHealth;
     }
-    public void ReceiveDagage(float damage)
+    public void ReceiveDagage(int damage)
     {
-        currentHealth -= damage;
-        //healthBar.fillAmount = currentHealth/maxHealth; 
+        _currentHealth -= damage;
+        _healthBar.fillAmount = 1.0f * _currentHealth / _maxHealth;
     }
 }
