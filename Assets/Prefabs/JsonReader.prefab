@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3868849888512606510
+--- !u!1 &4779975170567012374
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3868849888512606508}
-  - component: {fileID: 3868849888512606509}
+  - component: {fileID: 4779975170567012372}
+  - component: {fileID: 4779975170567012373}
   m_Layer: 0
   m_Name: JsonReader
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3868849888512606508
+--- !u!4 &4779975170567012372
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3868849888512606510}
+  m_GameObject: {fileID: 4779975170567012374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 426.83075, y: 212.92403, z: -5.547463}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3868849888512606509
+--- !u!114 &4779975170567012373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3868849888512606510}
+  m_GameObject: {fileID: 4779975170567012374}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a04029ebc12a724099eef9d57d5efcf, type: 3}
@@ -46,5 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NAMES_FILE: Names.json
   TYPE_FILE: Types.json
-  CATEGORY_FILE: Category.json
+  DUNGEON_FILE: Dungeon.json
+  WIZARD_FILE: WizardNames.json
   _dataSO: {fileID: 11400000, guid: 6b236624e7cd86c4b920ae40f17350ec, type: 2}

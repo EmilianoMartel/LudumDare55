@@ -19,6 +19,6 @@ public class HealthManager : MonoBehaviour
     public void ReceiveDagage(float damage)
     {
         currentHealth -= damage;
-        healthBar.fillAmount = currentHealth/maxHealth; 
+        //healthBar.fillAmount = currentHealth/maxHealth; 
     }
 }

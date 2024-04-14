@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
+    [SerializeField] private ActionChannel<bool> isWinGameEvent;
+
     [SerializeField] private GameObject gameOverMenu;
 
     //[SerializeField] private HealthPoints playerHealthPoints;
@@ -14,7 +17,18 @@ public class GameOverController : MonoBehaviour
     [SerializeField] private string buttonToMenu = "add level name here";
     [SerializeField] private string buttonToResetGame = "add level name here";
 
-    public void EndLevel()
+    //private void OnEnable()
+    //{
+    //    isWinGameEvent.Subscription(OnEventLose);
+
+    //}
+
+    //private void OnDisable()
+    //{
+    //    isWinGameEvent -= OnEventLose;
+    //}
+
+    public void OnEventLose()
     {
         //if (playerHealthPoints.health <= 0)
         //{

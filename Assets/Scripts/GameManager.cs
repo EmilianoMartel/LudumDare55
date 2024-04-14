@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private WizardRequestLogic _wizardRequest;
     [SerializeField] private DemonCreatorController _demonController;
 
+    [SerializeField] private HealthManager _healthManager;
+
     [SerializeField] private GameObject _loadingPanel;
     [SerializeField] private GameObject _changeDayPanel;
 
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _minWizarstoRequest = 6;
     [SerializeField] private int _wizardRequestIncrement = 2;
     [SerializeField] private float _waitFotCharge = 5;
+
 
     private int _currentWizarRequest = 0;
     private int _maxWizardRequest = 6;
@@ -28,7 +31,8 @@ public class GameManager : MonoBehaviour
     private Dungeons _dungeon;
 
     public Action startGameEvent = delegate { };
-    public Action<bool> isWinGameEvent = delegate { };
+    //public Action<bool> isWinGameEvent = delegate { };
+    [SerializeField] private ActionChannel<bool> _isWinEvent;
     public Action<Wizards, Demon> failEvent = delegate { };
 
     private void OnEnable()
@@ -71,7 +75,8 @@ public class GameManager : MonoBehaviour
         if (randomChance > (alliancePower / dungeonPower) * 100)
         {
             failEvent?.Invoke(_wizard, _actualDemon);
-            //MANDAR EL DAÑO AL TERMOMETRO
+            _healthManager.ReceiveDagage(10);
+            //este daño sera 10 siempre y cuando perdamos mago y demonio..
         }
     }
 
@@ -90,7 +95,8 @@ public class GameManager : MonoBehaviour
         _currentWaveCount++;
         if (_currentWaveCount >= _maxWaveCount)
         {
-            isWinGameEvent?.Invoke(true);
+            /*_isWinEvent.r?.Invoke(true)*/;
+            _isWinEvent.InvokeEvent(true);
         }
         _currentWizarRequest = 0;
         _maxWizardRequest += _wizardRequestIncrement;
@@ -117,6 +123,6 @@ public class GameManager : MonoBehaviour
 
     private void HandleAllDead()
     {
-        isWinGameEvent?.Invoke(false);
+        _isWinEvent.InvokeEvent(false);
     }
 }
