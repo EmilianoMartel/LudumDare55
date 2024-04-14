@@ -31,8 +31,7 @@ public class GameManager : MonoBehaviour
     private Dungeons _dungeon;
 
     public Action startGameEvent = delegate { };
-    //public Action<bool> isWinGameEvent = delegate { };
-    [SerializeField] private ActionChannel<bool> _isWinEvent;
+    [SerializeField] private IsWinOrLoseData _data;
     public Action<Wizards, Demon> failEvent = delegate { };
 
     private void OnEnable()
@@ -95,8 +94,7 @@ public class GameManager : MonoBehaviour
         _currentWaveCount++;
         if (_currentWaveCount >= _maxWaveCount)
         {
-            /*_isWinEvent.r?.Invoke(true)*/;
-            _isWinEvent.InvokeEvent(true);
+            _data.SetBool(true);
         }
         _currentWizarRequest = 0;
         _maxWizardRequest += _wizardRequestIncrement;
@@ -123,6 +121,6 @@ public class GameManager : MonoBehaviour
 
     private void HandleAllDead()
     {
-        _isWinEvent.InvokeEvent(false);
+        _data.SetBool(false);
     }
 }
