@@ -16,13 +16,11 @@ public class DemonView : MonoBehaviour
     private void OnEnable()
     {
         _controller.sendDeamonAction += HandleDemon;
-        _confirmLogic.confirmEvent += HandleCDDemon;
     }
 
     private void OnDisable()
     {
         _controller.sendDeamonAction -= HandleDemon;
-        _confirmLogic.confirmEvent -= HandleCDDemon;
     }
 
     private void HandleDemon(Demon demon, Sprite face)
@@ -32,10 +30,5 @@ public class DemonView : MonoBehaviour
         _type.text = demon.ShowType().Modifier;
         _category.text = demon.ShowCategoryName();
         _face.sprite = face;
-    }
-
-    private void HandleCDDemon()
-    {
-        _demon.HandleActiveCD();
     }
 }

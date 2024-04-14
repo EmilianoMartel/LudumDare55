@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ConfirmLogic : MonoBehaviour
 {
     [SerializeField] private SendDemonButton _sendDemon;
+    [SerializeField] private TimerRequest _timerRequest;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Button _confirmButton;
     [SerializeField] private Button _cancelButton;

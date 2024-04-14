@@ -11,9 +11,9 @@ public class DemonName
 
 public class DemonType
 {
-    public string Modifier;
-    public int Effect;
-    public string In;
+    public string Modifier = "null";
+    public int Effect = 1;
+    public string In = "null";
 }
 
 public class Category
@@ -26,7 +26,7 @@ public class Category
 public class Demon : MonoBehaviour
 { 
     [SerializeField] private string _name;
-    private DemonType _type;
+    private DemonType _type = new DemonType();
     [SerializeField] private Sprite _face;
     [SerializeField] private Category _category = new Category();
     private bool _isActive = false;

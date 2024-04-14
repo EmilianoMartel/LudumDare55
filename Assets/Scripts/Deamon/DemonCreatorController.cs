@@ -12,8 +12,12 @@ public class DemonCreatorController : MonoBehaviour
 {
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private ConfirmLogic _confirmLogic;
+    [SerializeField] private TimerRequest _timerRequest;
+    [SerializeField] private WizardRequestLogic _wizardRequestLogic;
+    [SerializeField] private SendDemonButton _sendDemon;
     [SerializeField] private List<DeamonButton> _demonButtonList = new List<DeamonButton>();
     [SerializeField] private Demon _prefabDemon;
+    [SerializeField] private Demon _emptyDemonPrefab;
     [Header("DataSource")]
     [SerializeField] private JsonDataSo _dataSO;
     [SerializeField] private List<Sprite> _spriteList = new List<Sprite>();
@@ -22,9 +26,11 @@ public class DemonCreatorController : MonoBehaviour
     private List<Demon> _activeList = new List<Demon>();
 
     private DeamonButton _demonButton;
+    private Demon _emptyDemon;
 
     public Action<Demon, Sprite> sendDeamonAction;
     public Action<Demon> electedDemonEvent = delegate { };
+    public Action<Demon> finalTimeEvent = delegate { };
     public Action allDemonsDieEvent = delegate { };
 
     private int _actualTier;
@@ -32,6 +38,9 @@ public class DemonCreatorController : MonoBehaviour
     private void OnEnable()
     {
         _gameManager.startGameEvent += StartGame;
+        _timerRequest.endTimerEvent += HandleTimerRequest;
+        _wizardRequestLogic.noneRequestEvent += HandleNoneRequest;
+        _wizardRequestLogic.reactiveRequestEvent += HandleReactiveRequest;
         for (int i = 0; i < _demonButtonList.Count; i++)
         {
             _demonButtonList[i].selectedButtonEvent += HandleButtonChange;
@@ -43,6 +52,10 @@ public class DemonCreatorController : MonoBehaviour
     {
         _gameManager.startGameEvent -= StartGame;
         _confirmLogic.confirmEvent -= HandleConfirmEvent;
+        _timerRequest.endTimerEvent -= HandleTimerRequest;
+
+        _wizardRequestLogic.noneRequestEvent -= HandleNoneRequest;
+        _wizardRequestLogic.reactiveRequestEvent -= HandleReactiveRequest;
         for (int i = 0; i < _demonList.Count; i++)
         {
             _demonList[i].canActive -= HandleActiveDemon;
@@ -59,12 +72,10 @@ public class DemonCreatorController : MonoBehaviour
 
     private Demon CreateDemon(int indexName)
     {
-        int indexType = UnityEngine.Random.Range(0,_dataSO.typesList.Count);
-
         Category cat = CheckCategory();
 
         Demon temp = Instantiate(_prefabDemon);
-        temp.StartDemon(_dataSO.namesList[indexName], _dataSO.typesList[indexType], cat, _spriteList[indexName]);
+        temp.StartDemon(_dataSO.namesList[indexName], _dataSO.typesList[indexName], cat, _spriteList[indexName]);
         temp.canActive += HandleActiveDemon;
 
         return temp;
@@ -108,24 +119,22 @@ public class DemonCreatorController : MonoBehaviour
 
     private Demon CheckActiveDemon()
     {
-        for (int i = 0; i < _demonList.Count; i++)
-        {
-            if (!_demonList[i].isActive)
-            {
-                return _demonList[i];
-            }
-        }
-        Demon demon = null;
+        if (_demonList[0] != null)
+            return _demonList[0];
+        
+        Demon demon = _emptyDemon;
         return demon;
     }
 
     [ContextMenu("Create List")]
     private void CreateListDemons()
     {
+        Shuffle(_dataSO.typesList);
         for (int i = 0; i < _dataSO.namesList.Count; i++)
         {
             _demonList.Add(CreateDemon(i));
         }
+        _emptyDemon = Instantiate(_emptyDemonPrefab);
         Shuffle(_demonList);
     }
 
@@ -158,7 +167,7 @@ public class DemonCreatorController : MonoBehaviour
     private void HandleConfirmEvent()
     {
         Demon profile = CheckActiveDemon();
-        profile.isActive = true;
+        Debug.Log("New demon " + profile.ShowName());
         if (_demonList.Contains(profile))
         {
             _demonList.Remove(profile);
@@ -171,5 +180,21 @@ public class DemonCreatorController : MonoBehaviour
     {
         CreateListDemons();
         SendFirstDemons();
+    }
+
+    private void HandleTimerRequest()
+    {
+        finalTimeEvent?.Invoke(_emptyDemon);
+        Debug.Log("Empty demon " + _emptyDemon);
+    }
+
+    private void HandleNoneRequest()
+    {
+        _sendDemon.gameObject.SetActive(false);
+    }
+
+    private void HandleReactiveRequest()
+    {
+        _sendDemon.gameObject.SetActive(true);
     }
 }
