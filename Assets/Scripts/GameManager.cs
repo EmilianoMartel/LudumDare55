@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private WizardRequestLogic _wizardRequest;
     [SerializeField] private DemonCreatorController _demonController;
 
-    [SerializeField] private HealthManager _healthManager;
-
     [SerializeField] private GameObject _loadingPanel;
     [SerializeField] private GameObject _changeDayPanel;
 
@@ -34,6 +32,7 @@ public class GameManager : MonoBehaviour
     private Dungeons _dungeon;
 
     public Action startGameEvent = delegate { };
+    public Action newWaveEvent = delegate { };
     [SerializeField] private IsWinOrLoseData _data;
     public Action<Wizards> failEvent = delegate { };
 
@@ -87,7 +86,6 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("fail");
             failEvent?.Invoke(_wizard);
-            _healthManager.ReceiveDagage(10);
         }
     }
 
@@ -117,6 +115,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator WaveChange()
     {
         yield return new WaitForSeconds(_waitFotCharge);
+        newWaveEvent?.Invoke();
         _changeDayPanel.SetActive(false);
     }
 
