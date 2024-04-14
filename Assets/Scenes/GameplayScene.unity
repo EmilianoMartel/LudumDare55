@@ -2837,7 +2837,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -752, y: -44.771667}
+  m_AnchoredPosition: {x: -752, y: 52.599}
   m_SizeDelta: {x: 217.127, y: 168.4008}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1025570396
@@ -4060,20 +4060,28 @@ PrefabInstance:
       objectReference: {fileID: 1815170391}
     - target: {fileID: 3914231989010434930, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
       propertyPath: _spriteList.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3914231989010434930, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
       propertyPath: _spriteList.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 29747e09632955d40ab88b81249ad7a8, type: 3}
+      objectReference: {fileID: 21300000, guid: 25c28d13f5af7144cb1a4661fc39c7d2, type: 3}
     - target: {fileID: 3914231989010434930, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
       propertyPath: _spriteList.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 41867472681135740a4203805eaba6dd, type: 3}
+      objectReference: {fileID: 21300000, guid: 3d892131db687044f9636207a35a1735, type: 3}
     - target: {fileID: 3914231989010434930, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
       propertyPath: _spriteList.Array.data[2]
       value: 
-      objectReference: {fileID: 21300000, guid: 9d47d98d31440d740863a2c5af9f81e0, type: 3}
+      objectReference: {fileID: 21300000, guid: 80629ea405f09a94fae9535017112fe0, type: 3}
+    - target: {fileID: 3914231989010434930, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: _spriteList.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0152351ddd476f24da1fd6f1403da8e8, type: 3}
+    - target: {fileID: 3914231989010434930, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: _spriteList.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b52da5d0ca797a429c42ae526bf6ded, type: 3}
     - target: {fileID: 3914231989010434932, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
       propertyPath: m_Type
       value: 0
@@ -6039,7 +6047,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -752, y: 170.15674}
+  m_AnchoredPosition: {x: -752, y: 221}
   m_SizeDelta: {x: 217.127, y: 168.4008}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2132832585
@@ -6899,13 +6907,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1815170391}
     - target: {fileID: 3914231989010434930, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: _spriteList.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914231989010434930, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
       propertyPath: _spriteList.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 29747e09632955d40ab88b81249ad7a8, type: 3}
+      objectReference: {fileID: 21300000, guid: 448e8340df9cbf44a8ea51a6f5b24696, type: 3}
     - target: {fileID: 3914231989010434930, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
       propertyPath: _spriteList.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: b7a6948feb4ddb64481024c2ddf999d7, type: 3}
+      objectReference: {fileID: 21300000, guid: e6a7025ed8df6784bbecec750fd87423, type: 3}
+    - target: {fileID: 3914231989010434930, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: _spriteList.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: b18a234ae945bc042a5bf5d655f3e70f, type: 3}
+    - target: {fileID: 3914231989010434930, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: _spriteList.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: e50815d542a6dad43b6d25ad8917f149, type: 3}
+    - target: {fileID: 3914231989010434930, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: _spriteList.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: e732296d2bad2304ba3b3cface5fe13b, type: 3}
+    - target: {fileID: 3914231989010434930, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: _spriteList.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ccbcb99cc5c7aa47a93becf1e77856b, type: 3}
     - target: {fileID: 3914231989010434932, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
       propertyPath: m_Type
       value: 0
