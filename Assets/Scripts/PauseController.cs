@@ -11,7 +11,23 @@ public class PauseController : MonoBehaviour
     [Header("Buttons Settings")]
     [SerializeField] private string buttonToMenu;
     [SerializeField] private GameObject eventSystemButtonSelected;
-    [SerializeField] private GameObject eventSystemSecondButtonSelected;
+    //[SerializeField] private GameObject eventSystemSecondButtonSelected;
+
+    void Update()
+    {
+        // Check for Escape key press
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pauseMenu.activeSelf)
+            {
+                ResumeButton();
+            }
+            else
+            {
+                PauseButton();
+            }
+        }
+    }
 
     /// <summary>
     /// This method activates the menu, pauses the game music and freezes the time.
@@ -33,8 +49,8 @@ public class PauseController : MonoBehaviour
         pauseMenu.SetActive(false);
         //levelMusic.Play();
         Time.timeScale = 1f;
-        var eventSystem = EventSystem.current;
-        eventSystem.SetSelectedGameObject(eventSystemSecondButtonSelected, new BaseEventData(eventSystem));
+        //var eventSystem = EventSystem.current;
+        //eventSystem.SetSelectedGameObject(eventSystemSecondButtonSelected, new BaseEventData(eventSystem));
     }
 
     /// <summary>
