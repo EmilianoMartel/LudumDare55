@@ -1,12 +1,54 @@
 [
-  {"type": "fire"},
-  {"type": "cold"},
-  {"type": "shadow"},
-  {"type": "poison"},
-  {"type": "thunder"},
-  {"type": "earth"},
-  {"type": "water"},
-  {"type": "wind"},
-  {"type": "darkness"},
-  {"type": "light"}
+  [
+    {
+      "Modifier": "Skilled swimmer",
+      "Effect": 2,
+      "In": "Castelarx"
+    },
+    {
+      "Modifier": "Has a BA in Psychology",
+      "Effect": 2,
+      "In": "Saharandi"
+    },
+    {
+      "Modifier": "Possesses rangers as a hobby",
+      "Effect": 2,
+      "In": "Xerlly"
+    },
+    {
+      "Modifier": "Is worshipped by the Thieves Guild",
+      "Effect": 3,
+      "In": "Lhanyuz Pass"
+    },
+    {
+      "Modifier": "Freelance trap designer",
+      "Effect": 3,
+      "In": "Ithuzaingord"
+    },
+    {
+      "Modifier": "Skilled in fire magic and registered arsonist",
+      "Effect": 3,
+      "In": "Haep-Do"
+    },
+    {
+      "Modifier": "Spiritual vegan, feeds only on ghosts and specters",
+      "Effect": 3,
+      "In": "Field of Banns"
+    },
+    {
+      "Modifier": "Hates giants",
+      "Effect": 4,
+      "In": "Quillmeck Keep"
+    },
+    {
+      "Modifier": "Used to shepherd undeads",
+      "Effect": 4,
+      "In": "Recolecthas Graveyard"
+    },
+    {
+      "Modifier": "Completely blind, relies on hearing",
+      "Effect": 4,
+      "In": "Berazz Athegi Ruins"
+    }
+  ]
 ]

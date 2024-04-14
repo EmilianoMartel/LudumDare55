@@ -75,8 +75,14 @@ public class GameManager : MonoBehaviour
     private void HandleCheckRequest()
     {
         int randomChance = UnityEngine.Random.Range(0, 100);
-        int alliancePower = _wizard.Power + _actualDemon.ShowCategoryPower();
         int dungeonPower = _dungeon.difficulty;
+        int modifierPower = 0;
+        if (_actualDemon.ShowType().In == _dungeon.name)
+        {
+            modifierPower = _actualDemon.ShowType().Effect;
+        }
+
+        int alliancePower = _wizard.Power + _actualDemon.ShowCategoryPower() + modifierPower;
         if (randomChance > (alliancePower / dungeonPower) * 100)
         {
             Debug.Log("fail");

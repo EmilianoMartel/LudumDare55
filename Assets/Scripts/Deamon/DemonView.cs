@@ -29,7 +29,7 @@ public class DemonView : MonoBehaviour
     {
         _demon = demon;
         _name.text = demon.ShowName();
-        _type.text = demon.ShowType();
+        _type.text = demon.ShowType().Modifier;
         _category.text = demon.ShowCategoryName();
         _face.sprite = face;
     }

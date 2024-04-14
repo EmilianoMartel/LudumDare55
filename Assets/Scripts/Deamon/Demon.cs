@@ -11,8 +11,9 @@ public class DemonName
 
 public class DemonType
 {
-    private string _type;
-    public string type { get { return _type; } set { _type = value; } }
+    public string Modifier;
+    public int Effect;
+    public string In;
 }
 
 public class Category
@@ -25,7 +26,7 @@ public class Category
 public class Demon : MonoBehaviour
 { 
     [SerializeField] private string _name;
-    private string _type;
+    private DemonType _type;
     [SerializeField] private Sprite _face;
     [SerializeField] private Category _category = new Category();
     private bool _isActive = false;
@@ -39,7 +40,7 @@ public class Demon : MonoBehaviour
     public void StartDemon(DemonName name, DemonType type, Category category, Sprite face)
     {
         _name = name.name;
-        _type = type.type;
+        _type = type;
         _category = category;
         _face = face;
     }
@@ -49,7 +50,7 @@ public class Demon : MonoBehaviour
         return _name;
     }
 
-    public string ShowType()
+    public DemonType ShowType()
     {
         return _type;
     }
