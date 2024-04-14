@@ -20,7 +20,6 @@ public class DemonCreatorController : MonoBehaviour
     
     private List<Demon> _demonList = new List<Demon>();
     private List<Demon> _activeList = new List<Demon>();
-    private List<Demon> _dieDemonList = new List<Demon>();
 
     private DeamonButton _demonButton;
 
@@ -33,7 +32,6 @@ public class DemonCreatorController : MonoBehaviour
     private void OnEnable()
     {
         _gameManager.startGameEvent += StartGame;
-        _gameManager.failEvent += HandleDemonDead;
         for (int i = 0; i < _demonButtonList.Count; i++)
         {
             _demonButtonList[i].selectedButtonEvent += HandleButtonChange;
@@ -44,7 +42,6 @@ public class DemonCreatorController : MonoBehaviour
     private void OnDisable()
     {
         _gameManager.startGameEvent -= StartGame;
-        _gameManager.failEvent -= HandleDemonDead;
         _confirmLogic.confirmEvent -= HandleConfirmEvent;
         for (int i = 0; i < _demonList.Count; i++)
         {
@@ -53,10 +50,6 @@ public class DemonCreatorController : MonoBehaviour
         for (int i = 0; i < _activeList.Count; i++)
         {
             _activeList[i].canActive -= HandleActiveDemon;
-        }
-        for (int i = 0; i < _dieDemonList.Count; i++)
-        {
-            _dieDemonList[i].canActive -= HandleActiveDemon;
         }
         for (int i = 0; i < _demonButtonList.Count; i++)
         {
@@ -178,23 +171,5 @@ public class DemonCreatorController : MonoBehaviour
     {
         CreateListDemons();
         SendFirstDemons();
-    }
-
-    private void HandleDemonDead(Wizards wizard, Demon demon)
-    {
-        if (_demonList.Contains(demon))
-        {
-            _demonList.Remove(demon);
-            _dieDemonList.Add(demon);
-        }
-        if (_activeList.Contains(demon))
-        {
-            _activeList.Remove(demon);
-            _dieDemonList.Add(demon);
-        }
-        if (_activeList.Count == 0 && _demonList.Count == 0)
-        {
-            allDemonsDieEvent?.Invoke();
-        }
     }
 }

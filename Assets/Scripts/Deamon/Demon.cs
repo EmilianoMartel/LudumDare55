@@ -17,17 +17,17 @@ public class DemonType
 
 public class Category
 {
-    public string Name;
-    public int Level;
-    public int Rank;
+    public string Name = "UselessDemon";
+    public int Level = 0;
+    public int Rank = 0;
 }
 
 public class Demon : MonoBehaviour
-{
-    private string _name;
+{ 
+    [SerializeField] private string _name;
     private string _type;
-    private Sprite _face;
-    private Category _category;
+    [SerializeField] private Sprite _face;
+    [SerializeField] private Category _category = new Category();
     private bool _isActive = false;
     private float _timeCD = 5;
 

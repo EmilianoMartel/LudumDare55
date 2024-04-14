@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -32,7 +35,10 @@ public class GameManager : MonoBehaviour
 
     public Action startGameEvent = delegate { };
     [SerializeField] private IsWinOrLoseData _data;
-    public Action<Wizards, Demon> failEvent = delegate { };
+    public Action<Wizards> failEvent = delegate { };
+
+    [SerializeField] private string _endSceneName = "GameOverScene";
+    [SerializeField] private float _waitForChangeScene = 0.5f;
 
     private void OnEnable()
     {
@@ -73,9 +79,9 @@ public class GameManager : MonoBehaviour
         int dungeonPower = _dungeon.difficulty;
         if (randomChance > (alliancePower / dungeonPower) * 100)
         {
-            failEvent?.Invoke(_wizard, _actualDemon);
+            Debug.Log("fail");
+            failEvent?.Invoke(_wizard);
             _healthManager.ReceiveDagage(10);
-            //este daño sera 10 siempre y cuando perdamos mago y demonio..
         }
     }
 
@@ -94,7 +100,7 @@ public class GameManager : MonoBehaviour
         _currentWaveCount++;
         if (_currentWaveCount >= _maxWaveCount)
         {
-            _data.SetBool(true);
+            StartCoroutine(GameOver(true));
         }
         _currentWizarRequest = 0;
         _maxWizardRequest += _wizardRequestIncrement;
@@ -121,6 +127,13 @@ public class GameManager : MonoBehaviour
 
     private void HandleAllDead()
     {
-        _data.SetBool(false);
+        StartCoroutine(GameOver(false));
+    }
+
+    private IEnumerator GameOver(bool isWining)
+    {
+        _data.SetBool(isWining);
+        yield return new WaitForSeconds(_waitForChangeScene);
+        SceneManager.LoadScene(_endSceneName);
     }
 }

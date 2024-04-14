@@ -43,15 +43,13 @@ public class WizardRequestLogic : MonoBehaviour
 
     private void RandomWizardRequest()
     {
-        Debug.Log(_activeWizards.Count);
-        Debug.Log(_dataSo.dungeonList.Count);
         int indexWizard = UnityEngine.Random.Range(0, _activeWizards.Count);
         int indexDungeon = UnityEngine.Random.Range(0, _dataSo.dungeonList.Count);
         wizardRequestEvent?.Invoke(_activeWizards[indexWizard], _dataSo.dungeonList[indexDungeon]);
         _view.ReceiveDungeonData(_activeWizards[indexWizard].Name, _dataSo.dungeonList[indexDungeon].name);
     }
 
-    private void HandleWizardDead(Wizards wizard,Demon demon)
+    private void HandleWizardDead(Wizards wizard)
     {
         if (_activeWizards.Contains(wizard))
         {
