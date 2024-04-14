@@ -51,4 +51,9 @@ public class MenuManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void PauseMenu()
+    {
+        SceneManager.LoadScene("PauseMenu");
+    }
 }
