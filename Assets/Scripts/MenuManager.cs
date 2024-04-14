@@ -9,6 +9,12 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _creditsMenu;
     [SerializeField] private GameObject _optionsMenu;
 
+    [Header("Sound")]
+    [SerializeField] private AudioSource mainMenuSound;
+    [SerializeField] private AudioSource optionsMenuSound;
+    [SerializeField] private AudioSource creditsMenuSound;
+
+
     [Header("Scenes to load")]
     [SerializeField] private string _startGame = "add  gameplay level name here";
 
@@ -26,6 +32,8 @@ public class MenuManager : MonoBehaviour
     {
         _mainMenu.SetActive(false);
         _creditsMenu.SetActive(true);
+        mainMenuSound.Stop();
+        creditsMenuSound.Play();
         var eventSystem = EventSystem.current;
         eventSystem.SetSelectedGameObject(_creditsMenuButtonSelected, new BaseEventData(eventSystem));
     }
@@ -34,6 +42,8 @@ public class MenuManager : MonoBehaviour
     {
         _mainMenu.SetActive(false);
         _optionsMenu.SetActive(true);
+        optionsMenuSound.Play();
+        mainMenuSound.Stop();
         var eventSystem = EventSystem.current;
         eventSystem.SetSelectedGameObject(_optionMenuButtonSelected, new BaseEventData(eventSystem));
     }
@@ -41,6 +51,9 @@ public class MenuManager : MonoBehaviour
     public void BackToMenu()
     {
         _mainMenu.SetActive(true);
+        mainMenuSound.Play();
+        creditsMenuSound.Stop();
+        optionsMenuSound.Stop();
         _creditsMenu.SetActive(false);
         _optionsMenu.SetActive(false);
         var eventSystem = EventSystem.current;

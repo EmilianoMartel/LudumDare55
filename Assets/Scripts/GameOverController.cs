@@ -11,6 +11,9 @@ public class GameOverController : MonoBehaviour
 
     [SerializeField] private GameObject FirstButtonSelected;
 
+    [Header("Sound")]
+    [SerializeField] private AudioSource _winMenuSound;
+    [SerializeField] private AudioSource _loseMenuSound;
 
     [SerializeField] private string buttonToMenu = "add level name here";
     [SerializeField] private string buttonToResetGame = "add level name here";
@@ -26,6 +29,7 @@ public class GameOverController : MonoBehaviour
         {
             _winCanvas.SetActive(true);
             _loseCanvas.SetActive(false);
+            _winMenuSound.Play();
             var eventSystem = EventSystem.current;
             eventSystem.SetSelectedGameObject(FirstButtonSelected, new BaseEventData(eventSystem));
         }
@@ -33,6 +37,7 @@ public class GameOverController : MonoBehaviour
         {
             _winCanvas.SetActive(false);
             _loseCanvas.SetActive(true);
+            _loseMenuSound.Play();
             var eventSystem = EventSystem.current;
             eventSystem.SetSelectedGameObject(FirstButtonSelected, new BaseEventData(eventSystem));
         }

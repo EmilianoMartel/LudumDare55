@@ -6000,6 +6000,18 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3914231988153815577, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
+    - target: {fileID: 3914231988153815577, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5929674532380232541, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
+    - target: {fileID: 3914231988504326280, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3914231988504326283, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 543
