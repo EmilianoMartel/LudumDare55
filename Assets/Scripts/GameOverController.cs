@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
-    [SerializeField] private ActionChannel<bool> isWinGameEvent;
+    //[SerializeField] private ActionChannel<bool> isWinGameEvent;
 
-    [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject _gameWinMenu;
+    [SerializeField] private GameObject _gameLoseMenu;
+
 
     //[SerializeField] private HealthPoints playerHealthPoints;
 
@@ -36,6 +38,16 @@ public class GameOverController : MonoBehaviour
         //    var eventSystem = EventSystem.current;
         //    eventSystem.SetSelectedGameObject(FirstButtonSelected, new BaseEventData(eventSystem));
         //}
+    }
+
+    public void GameWin()
+    {
+        _gameWinMenu.SetActive(true);
+    }
+
+    public void GameLose()
+    {
+        _gameLoseMenu.SetActive(true);
     }
 
     public void RestartButton()
