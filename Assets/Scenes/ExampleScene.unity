@@ -462,6 +462,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: WizardTable
       objectReference: {fileID: 0}
+    - target: {fileID: 1971701089376114605, guid: 18174060a30f4814baf931503333830c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
+    - target: {fileID: 1971701089376114605, guid: 18174060a30f4814baf931503333830c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5929674532380232541, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18174060a30f4814baf931503333830c, type: 3}
 --- !u!224 &363915674 stripped
@@ -2379,14 +2387,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 621268265}
     m_Modifications:
+    - target: {fileID: 3914231987415843962, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
+    - target: {fileID: 3914231987415843962, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5929674532380232541, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
     - target: {fileID: 3914231987953614687, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914231988153815577, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
+    - target: {fileID: 3914231988153815577, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5929674532380232541, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
+    - target: {fileID: 3914231988504326280, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3914231988504326283, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3914231988693344382, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
+    - target: {fileID: 3914231988693344382, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5929674532380232541, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
     - target: {fileID: 3914231989010434932, guid: d158d08e2fccfe54198805f2621ed972, type: 3}
       propertyPath: m_Type
       value: 0
@@ -2979,6 +3015,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8486350454744186362, guid: 2b839e33f0bfedd41bb12371a81e50fc, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
+    - target: {fileID: 8486350454744186362, guid: 2b839e33f0bfedd41bb12371a81e50fc, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5929674532380232541, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
+    - target: {fileID: 8486350455399679127, guid: 2b839e33f0bfedd41bb12371a81e50fc, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
+    - target: {fileID: 8486350455399679127, guid: 2b839e33f0bfedd41bb12371a81e50fc, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5929674532380232541, guid: eaecdd0e33d6d9946ac78a34b1257294, type: 2}
     - target: {fileID: 8486350456046901382, guid: 2b839e33f0bfedd41bb12371a81e50fc, type: 3}
       propertyPath: _sendDemon
       value: 
