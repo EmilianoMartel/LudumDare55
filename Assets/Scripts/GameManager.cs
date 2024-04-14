@@ -86,9 +86,9 @@ public class GameManager : MonoBehaviour
         startDungeonEvent?.Invoke(wizard,dungeon);
         yield return new WaitForSeconds(_timeResolutionDungeon);
         int randomChance = UnityEngine.Random.Range(0, 100);
-        int dungeonPower = dungeon.difficulty;
+        int dungeonPower = dungeon.Danger;
         int modifierPower = 0;
-        if (demon.ShowType().In == dungeon.name)
+        if (demon.ShowType().In == dungeon.Name)
         {
             modifierPower = demon.ShowType().Effect;
         }

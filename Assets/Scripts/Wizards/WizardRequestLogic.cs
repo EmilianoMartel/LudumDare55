@@ -64,7 +64,7 @@ public class WizardRequestLogic : MonoBehaviour
         int indexWizard = UnityEngine.Random.Range(0, _activeWizards.Count);
         int indexDungeon = UnityEngine.Random.Range(0, _activeDungeons.Count);
         wizardRequestEvent?.Invoke(_activeWizards[indexWizard], _dataSo.dungeonList[indexDungeon]);
-        _view.ReceiveDungeonData(_activeWizards[indexWizard].Name, _dataSo.dungeonList[indexDungeon].name);
+        _view.ReceiveDungeonData(_activeWizards[indexWizard].Name, _dataSo.dungeonList[indexDungeon].Name);
         if (_activeQuest >= _maxDungeonRequest)
         {
             _view.ReciveNoneData();

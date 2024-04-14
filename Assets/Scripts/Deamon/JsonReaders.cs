@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class Dungeons
 {
-    public string name;
-    public int difficulty;
+    public string Name;
+    public int Danger;
 }
 
 public class Wizards

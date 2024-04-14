@@ -1,13 +1,42 @@
 [
-  {"name": "Ituzaingor", "difficulty": 1},
-  {"name": "Castelarx", "difficulty": -1},
-  {"name": "Sarandi", "difficulty": 2},
-  {"name": "Gerli", "difficulty": 3},
-  {"name": "Lanus", "difficulty": 4},
-  {"name": "Avellaneda", "difficulty": -2},
-  {"name": "Moron", "difficulty": 1},
-  {"name": "Haedo", "difficulty": 1},
-  {"name": "Caseros", "difficulty": -1},
-  {"name": "Banfield", "difficulty": 2},
-  {"name": "Quilmes", "difficulty": 3}
+  {
+    "Name": "Castelarx",
+    "Danger": 11
+  },
+  {
+    "Name": "Saharandi",
+    "Danger": 11
+  },
+  {
+    "Name": "Xerlly",
+    "Danger": 13
+  },
+  {
+    "Name": "Lhanyuz Pass",
+    "Danger": 13
+  },
+  {
+    "Name": "Ithuzaingord",
+    "Danger": 15
+  },
+  {
+    "Name": "Haep-Do",
+    "Danger": 15
+  },
+  {
+    "Name": "Field of Banns",
+    "Danger": 17
+  },
+  {
+    "Name": "Quillmeck Keep",
+    "Danger": 19
+  },
+  {
+    "Name": "Recolecthas Graveyard",
+    "Danger": 21
+  },
+  {
+    "Name": "Berazz Athegi Ruins",
+    "Danger": 23
+  }
 ]
