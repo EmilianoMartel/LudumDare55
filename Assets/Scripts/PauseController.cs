@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,8 @@ public class PauseController : MonoBehaviour
     [SerializeField] private string buttonToMenu;
     [SerializeField] private GameObject eventSystemButtonSelected;
     //[SerializeField] private GameObject eventSystemSecondButtonSelected;
+
+    public Action<bool> pauseEvent;
 
     void Update()
     {
@@ -35,6 +38,7 @@ public class PauseController : MonoBehaviour
     /// </summary>
     public void PauseButton()
     {
+        pauseEvent?.Invoke(true);
         pauseMenu.SetActive(true);
         _pauseSound.Play();
         Time.timeScale = 0f;
@@ -47,6 +51,7 @@ public class PauseController : MonoBehaviour
     /// </summary>
     public void ResumeButton()
     {
+        pauseEvent?.Invoke(false);
         pauseMenu.SetActive(false);
         _pauseSound.Stop();
         Time.timeScale = 1f;

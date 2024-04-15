@@ -6424,10 +6424,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -943899667434615049, guid: 3686bae278d20864796fc691a35c7f98, type: 2}
   m_audioClip: {fileID: 8300000, guid: a5f55e6b6b396134d8a72724b69af552, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6520,10 +6520,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -943899667434615049, guid: 3686bae278d20864796fc691a35c7f98, type: 2}
   m_audioClip: {fileID: 8300000, guid: 81c96a581e754214c8db56b2f4db0274, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6619,7 +6619,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6718,6 +6718,7 @@ MonoBehaviour:
   - {fileID: 1819625101}
   - {fileID: 1819625100}
   _gameManager: {fileID: 1971085134}
+  _pauseController: {fileID: 934070074}
 --- !u!4 &1819625104
 Transform:
   m_ObjectHideFlags: 0
