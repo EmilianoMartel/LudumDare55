@@ -1,42 +1,42 @@
 [
   {
     "Name": "Castelarx",
-    "Danger": 11
+    "Danger": 6
   },
   {
     "Name": "Saharandi",
-    "Danger": 11
+    "Danger": 7
   },
   {
     "Name": "Xerlly",
-    "Danger": 13
+    "Danger": 8
   },
   {
     "Name": "Lhanyuz Pass",
-    "Danger": 13
+    "Danger": 8
   },
   {
     "Name": "Ithuzaingord",
-    "Danger": 15
+    "Danger": 10
   },
   {
     "Name": "Haep-Do",
-    "Danger": 15
+    "Danger": 10
   },
   {
     "Name": "Field of Banns",
-    "Danger": 17
+    "Danger": 11
   },
   {
     "Name": "Quillmeck Keep",
-    "Danger": 19
+    "Danger": 12
   },
   {
     "Name": "Recolecthas Graveyard",
-    "Danger": 21
+    "Danger": 14
   },
   {
     "Name": "Berazz Athegi Ruins",
-    "Danger": 23
+    "Danger": 16
   }
 ]
