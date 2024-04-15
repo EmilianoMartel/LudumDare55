@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _creditsMenu;
     [SerializeField] private GameObject _optionsMenu;
+    [SerializeField] private GameObject _tutorial;
 
     [Header("Sound")]
     [SerializeField] private AudioSource mainMenuSound;
@@ -32,6 +33,7 @@ public class MenuManager : MonoBehaviour
     {
         _mainMenu.SetActive(false);
         _creditsMenu.SetActive(true);
+        _tutorial.SetActive(false);
         mainMenuSound.Stop();
         creditsMenuSound.Play();
         var eventSystem = EventSystem.current;
@@ -42,6 +44,7 @@ public class MenuManager : MonoBehaviour
     {
         _mainMenu.SetActive(false);
         _optionsMenu.SetActive(true);
+        _tutorial.SetActive(false);
         optionsMenuSound.Play();
         mainMenuSound.Stop();
         var eventSystem = EventSystem.current;
@@ -55,6 +58,7 @@ public class MenuManager : MonoBehaviour
         creditsMenuSound.Stop();
         optionsMenuSound.Stop();
         _creditsMenu.SetActive(false);
+        _tutorial.SetActive(false);
         _optionsMenu.SetActive(false);
         var eventSystem = EventSystem.current;
         eventSystem.SetSelectedGameObject(_mainMenuButtonSelected, new BaseEventData(eventSystem));
@@ -68,5 +72,13 @@ public class MenuManager : MonoBehaviour
     public void PauseMenu()
     {
         SceneManager.LoadScene("PauseMenu");
+    }
+
+    public void Tutorial()
+    {
+        _tutorial.SetActive(true);
+        _creditsMenu.SetActive(false);
+        _optionsMenu.SetActive(false);
+        _mainMenu.SetActive(false);
     }
 }
