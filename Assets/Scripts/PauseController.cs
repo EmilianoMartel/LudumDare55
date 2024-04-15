@@ -7,6 +7,7 @@ public class PauseController : MonoBehaviour
     [Header("Others Settings")]
     //[SerializeField] private AudioSource levelMusic;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private AudioSource _pauseSound;
 
     [Header("Buttons Settings")]
     [SerializeField] private string buttonToMenu;
@@ -35,7 +36,7 @@ public class PauseController : MonoBehaviour
     public void PauseButton()
     {
         pauseMenu.SetActive(true);
-        //levelMusic.Pause();
+        _pauseSound.Play();
         Time.timeScale = 0f;
         var eventSystem = EventSystem.current;
         eventSystem.SetSelectedGameObject(eventSystemButtonSelected, new BaseEventData(eventSystem));
@@ -47,7 +48,7 @@ public class PauseController : MonoBehaviour
     public void ResumeButton()
     {
         pauseMenu.SetActive(false);
-        //levelMusic.Play();
+        _pauseSound.Stop();
         Time.timeScale = 1f;
         //var eventSystem = EventSystem.current;
         //eventSystem.SetSelectedGameObject(eventSystemSecondButtonSelected, new BaseEventData(eventSystem));
