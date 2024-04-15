@@ -1,11 +1,24 @@
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class ButtonSound : MonoBehaviour
 {
-    [SerializeField] private AudioSource _buttonSound;
+    [SerializeField] private AudioSource _audio;
+    [SerializeField] private Button _button;
 
-    public void OnButtonPressed()
+    private void OnEnable()
     {
-        _buttonSound.Play();
+        _button.onClick.AddListener(PlaySoundButton);
+    }
+
+    private void OnDisable()
+    {
+        _button.onClick.RemoveListener(PlaySoundButton);
+    }
+
+    private void PlaySoundButton()
+    {
+        _audio.Play();
     }
 }
