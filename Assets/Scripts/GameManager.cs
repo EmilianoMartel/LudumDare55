@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     public Action<Wizards,Dungeons,bool> endDungeonEvent = delegate { };
     public Action<Wizards, Dungeons> startDungeonEvent = delegate { };
     public Action finalDayEvent = delegate { };
+    public Action<int> damageEvent = delegate { };
 
     [SerializeField] private string _endSceneName = "GameOverScene";
     [SerializeField] private float _waitForChangeScene = 0.5f;
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(_waitFotCharge);
         startGameEvent?.Invoke();
         _loadingPanel.SetActive(false);
+        damageEvent?.Invoke(_failDayCount);
     }
 
     private IEnumerator HandleCheckRequest(Wizards wizard, Dungeons dungeon, Demon demon)
@@ -105,6 +107,8 @@ public class GameManager : MonoBehaviour
             _failDayCount++;
 
             _termometer.HandleDamage((float)_failDayCount / (float)_maxFail);
+            damageEvent?.Invoke(_failDayCount);
+
             if (_failDayCount >= _maxFail)
             {
                 StartCoroutine(GameOver(false));
@@ -151,6 +155,7 @@ public class GameManager : MonoBehaviour
         _termometer.ResetAmount();
         _currentWizarRequest = 0;
         _failDayCount = 0;
+        damageEvent?.Invoke(_failDayCount);
         _maxWizardRequest += _wizardRequestIncrement;
 
         newWaveEvent?.Invoke();
