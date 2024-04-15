@@ -126,13 +126,6 @@ public class GameManager : MonoBehaviour
 
     private void WaveChanger()
     {
-        _currentWaveCount++;
-        _failDayCount = 0;
-        if (_currentWaveCount >= _maxWaveCount)
-        {
-            StartCoroutine(GameOver(true));
-        }
-        
         StartCoroutine(WaveChange());
     }
 
@@ -141,12 +134,18 @@ public class GameManager : MonoBehaviour
         finalDayEvent?.Invoke();
         yield return StartCoroutine(CheckWaveChanger());
         _changeDayPanel.SetActive(true);
+        _currentWaveCount++;
+        if (_currentWaveCount >= _maxWaveCount)
+        {
+            StartCoroutine(GameOver(true));
+        }
         yield return new WaitForSeconds(_waitFotCharge);
         newWaveEvent?.Invoke();
         _finalDungeons = 0;
         _changeDayPanel.SetActive(false);
         _termometer.ResetAmount();
         _currentWizarRequest = 0;
+        _failDayCount = 0;
         _maxWizardRequest += _wizardRequestIncrement;
     }
 
