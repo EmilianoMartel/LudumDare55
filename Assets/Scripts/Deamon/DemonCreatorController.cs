@@ -173,7 +173,8 @@ public class DemonCreatorController : MonoBehaviour
             _demonList.Remove(profile);
             _activeList.Add(profile);
         }
-        _demonButton.ReciveDemon(profile, profile.face);
+        if (_demonButton)
+            _demonButton.ReciveDemon(profile, profile.face);
     }
 
     private void StartGame()

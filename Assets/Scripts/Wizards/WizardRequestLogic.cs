@@ -76,7 +76,9 @@ public class WizardRequestLogic : MonoBehaviour
 
     private IEnumerator WaitForRequest()
     {
+        _timeRequest.gameObject.SetActive(false);
         yield return new WaitForSeconds(_waitForNewRequest);
+        _timeRequest.gameObject.SetActive(true);
         reactiveRequestEvent?.Invoke();
         RandomWizardRequest();
     }

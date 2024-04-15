@@ -83,6 +83,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator HandleCheckRequest(Wizards wizard, Dungeons dungeon, Demon demon)
     {
+        if (!demon)
+            demon = new Demon();
+
         startDungeonEvent?.Invoke(wizard,dungeon);
         yield return new WaitForSeconds(_timeResolutionDungeon);
         int randomChance = UnityEngine.Random.Range(0, 100);
@@ -117,7 +120,9 @@ public class GameManager : MonoBehaviour
     private void HandleRequest()
     {
         _currentWizarRequest++;
+
         StartCoroutine(HandleCheckRequest(_wizard, _dungeon, _actualDemon));
+
         if (_currentWizarRequest >= _maxWizardRequest)
         {
             WaveChanger();
@@ -140,13 +145,15 @@ public class GameManager : MonoBehaviour
             StartCoroutine(GameOver(true));
         }
         yield return new WaitForSeconds(_waitFotCharge);
-        newWaveEvent?.Invoke();
+        
         _finalDungeons = 0;
         _changeDayPanel.SetActive(false);
         _termometer.ResetAmount();
         _currentWizarRequest = 0;
         _failDayCount = 0;
         _maxWizardRequest += _wizardRequestIncrement;
+
+        newWaveEvent?.Invoke();
     }
 
     private IEnumerator CheckWaveChanger()
